@@ -10,19 +10,18 @@ class FirebaseAuthSource {
           email: email, password: password);
       return Response.success(userCredential);
     } catch (e) {
-      return Response.error(
-          ((e as FirebaseException).message ?? e.toString()));
+      return Response.error(((e as FirebaseException).message ?? e.toString()));
     }
   }
 
-  Future<Response<UserCredential>> register(String email, String password) async {
+  Future<Response<UserCredential>> register(
+      String email, String password) async {
     try {
       UserCredential userCredential = await instance
           .createUserWithEmailAndPassword(email: email, password: password);
       return Response.success(userCredential);
     } catch (e) {
-      return Response.error(
-          ((e as FirebaseException).message ?? e.toString()));
+      return Response.error(((e as FirebaseException).message ?? e.toString()));
     }
   }
 }

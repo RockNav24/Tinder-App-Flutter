@@ -1,4 +1,4 @@
-package com.fredrikbogg.tinder_app_flutter
+package com.guestspot.guestspot
 
 import io.flutter.embedding.android.FlutterActivity
 

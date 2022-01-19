@@ -64,7 +64,9 @@ class _SwipeCardState extends State<SwipeCard> {
                   text: widget.person.name,
                   style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                 ),
-                TextSpan(text: '  ${widget.person.age}', style: TextStyle(fontSize: 20)),
+                TextSpan(
+                    text: '  ${widget.person.filters}',
+                    style: TextStyle(fontSize: 20)),
               ],
             )),
           ],

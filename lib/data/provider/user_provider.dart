@@ -38,6 +38,7 @@ class UserProvider extends ChangeNotifier {
       GlobalKey<ScaffoldState> errorScaffoldKey) async {
     Response<dynamic> response = await _authSource.register(
         userRegistration.email, userRegistration.password);
+
     if (response is Success<UserCredential>) {
       String id = (response as Success<UserCredential>).value.user.uid;
       response = await _storageSource.uploadUserProfilePhoto(
@@ -48,7 +49,7 @@ class UserProvider extends ChangeNotifier {
         AppUser user = AppUser(
             id: id,
             name: userRegistration.name,
-            age: userRegistration.age,
+            filters: userRegistration.filters,
             profilePhotoPath: profilePhotoUrl);
         _databaseSource.addUser(user);
         SharedPreferencesUtil.setUserId(id);
@@ -65,6 +66,15 @@ class UserProvider extends ChangeNotifier {
     String id = await SharedPreferencesUtil.getUserId();
     _user = AppUser.fromSnapshot(await _databaseSource.getUser(id));
     return _user;
+  }
+
+  Future<bool> resetUserPassword(String email) async {
+    try {
+      await _authSource.instance.sendPasswordResetEmail(email: email);
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   void updateUserProfilePhoto(
@@ -85,6 +95,12 @@ class UserProvider extends ChangeNotifier {
 
   void updateUserBio(String newBio) {
     _user.bio = newBio;
+    _databaseSource.updateUser(_user);
+    notifyListeners();
+  }
+
+  void updateUserFilters(List newFilters) {
+    _user.filters = newFilters;
     _databaseSource.updateUser(_user);
     notifyListeners();
   }

@@ -29,7 +29,7 @@ class _InputDialogState extends State<InputDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: kBackgroundColor,
+      backgroundColor: Colors.white,
       contentPadding: EdgeInsets.all(16.0),
       content: BorderedTextField(
         textCapitalization: TextCapitalization.sentences,
@@ -40,8 +40,7 @@ class _InputDialogState extends State<InputDialog> {
         textController: textController,
       ),
       actions: <Widget>[
-        FlatButton(
-          color: kColorPrimaryVariant,
+        ElevatedButton(
           child: Text(
             'CANCEL',
             style: Theme.of(context).textTheme.bodyText1,
@@ -50,8 +49,7 @@ class _InputDialogState extends State<InputDialog> {
             Navigator.pop(context);
           },
         ),
-        FlatButton(
-          color: kAccentColor,
+        ElevatedButton(
           child: Text(
             'SAVE',
             style: Theme.of(context).textTheme.bodyText1,
@@ -60,6 +58,9 @@ class _InputDialogState extends State<InputDialog> {
             widget.onSavePressed(inputText);
             Navigator.pop(context);
           },
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(kAccentColor),
+          ),
         ),
       ],
     );

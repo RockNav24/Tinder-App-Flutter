@@ -5,7 +5,7 @@ import 'package:tinder_app_flutter/data/db/remote/response.dart';
 import 'package:tinder_app_flutter/data/model/user_registration.dart';
 import 'package:tinder_app_flutter/data/provider/user_provider.dart';
 import 'package:tinder_app_flutter/ui/screens/register_sub_screens/add_photo_screen.dart';
-import 'package:tinder_app_flutter/ui/screens/register_sub_screens/age_screen.dart';
+import 'package:tinder_app_flutter/ui/screens/register_sub_screens/filter_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/register_sub_screens/email_and_password_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/register_sub_screens/name_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/top_navigation_screen.dart';
@@ -72,11 +72,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
         return NameScreen(
             onChanged: (value) => {_userRegistration.name = value});
       case 1:
-        return AgeScreen(onChanged: (value) => {_userRegistration.age = value});
+        return FilterScreen(
+            onChanged: (value) => {_userRegistration.filters = value});
       case 2:
         return AddPhotoScreen(
-            onPhotoChanged: (value) =>
-                {_userRegistration.localProfilePhotoPath = value});
+            onPhotoChanged: (value) => {
+                  value != null
+                      ? _userRegistration.localProfilePhotoPath = value
+                      : null
+                });
       case 3:
         return EmailAndPasswordScreen(
             emailOnChanged: (value) => {_userRegistration.email = value},
@@ -91,7 +95,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       case 0:
         return (_userRegistration.name.length >= 2);
       case 1:
-        return (_userRegistration.age >= 13 && _userRegistration.age <= 120);
+        return (_userRegistration.filters.isNotEmpty);
       case 2:
         return _userRegistration.localProfilePhotoPath.isNotEmpty;
       default:
@@ -104,7 +108,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       case 0:
         return "Name is too short";
       case 1:
-        return "Invalid age";
+        return "Invalid filters";
       case 2:
         return "Invalid photo";
       default:

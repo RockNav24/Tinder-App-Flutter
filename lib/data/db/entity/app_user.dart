@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 class AppUser {
   String id;
   String name;
-  int age;
+  List filters;
   String profilePhotoPath;
   String bio = "";
 
   AppUser(
       {@required this.id,
       @required this.name,
-      @required this.age,
+      this.filters,
       @required this.profilePhotoPath});
 
   AppUser.fromSnapshot(DocumentSnapshot snapshot) {
     id = snapshot['id'];
     name = snapshot['name'];
-    age = snapshot['age'];
+    filters = snapshot['filters'];
     profilePhotoPath = snapshot['profile_photo_path'];
     bio = snapshot.get('bio') ?? '';
   }
@@ -26,7 +26,7 @@ class AppUser {
     return <String, dynamic>{
       'id': id,
       'name': name,
-      'age': age,
+      'filters': filters,
       'profile_photo_path': profilePhotoPath,
       'bio': bio
     };

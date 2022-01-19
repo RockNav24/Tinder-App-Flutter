@@ -26,7 +26,7 @@ class _MatchScreenState extends State<MatchScreen> {
 
   Future<AppUser> loadPerson(String myUserId) async {
     if (_ignoreSwipeIds == null) {
-      _ignoreSwipeIds = List<String>();
+      _ignoreSwipeIds = [];
       var swipes = await _databaseSource.getSwipes(myUserId);
       for (var i = 0; i < swipes.size; i++) {
         Swipe swipe = Swipe.fromSnapshot(swipes.docs[i]);
@@ -150,7 +150,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                                         snapshot.data,
                                                         true);
                                                   },
-                                                  iconData: Icons.favorite,
+                                                  iconData: Icons.thumb_up,
                                                   iconSize: 30,
                                                 ),
                                               ],

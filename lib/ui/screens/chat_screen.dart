@@ -142,12 +142,14 @@ class ChatScreen extends StatelessWidget {
                     contentPadding: EdgeInsets.all(0)),
               ),
             ),
-            RaisedButton(
-              padding: EdgeInsets.all(10),
-              highlightElevation: 0,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4)),
+            ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ),
               child: Text(
                 "SEND",
                 style: Theme.of(context).textTheme.bodyText1,

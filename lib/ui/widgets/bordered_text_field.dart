@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tinder_app_flutter/util/constants.dart';
+import 'package:tinder_app_flutter/util/utils.dart';
 
 class BorderedTextField extends StatelessWidget {
   final String labelText;
@@ -23,7 +24,7 @@ class BorderedTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = kSecondaryColor;
 
-    return TextField(
+    return TextFormField(
       controller: textController,
       onChanged: onChanged,
       obscureText: obscureText,
@@ -42,6 +43,7 @@ class BorderedTextField extends StatelessWidget {
           borderSide: BorderSide(color: color),
         ),
       ),
+      validator: (value) => validateEmail(value),
     );
   }
 }

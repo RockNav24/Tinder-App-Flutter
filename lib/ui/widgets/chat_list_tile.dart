@@ -21,7 +21,7 @@ class ChatListTile extends StatelessWidget {
       onTap: onTap,
       onLongPress: () {},
       child: Container(
-        height: 60,
+        height: 70,
         child: Row(
           children: [
             Container(
@@ -40,6 +40,7 @@ class ChatListTile extends StatelessWidget {
                 child: Padding(
               padding: EdgeInsets.only(left: 8, top: 8, bottom: 8),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [getTopRow(), getBottomRow()],
               ),
@@ -67,6 +68,7 @@ class ChatListTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
+          flex: 1,
           child: Text(
             chatWithUser.user.name,
             maxLines: 1,
@@ -91,6 +93,7 @@ class ChatListTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Expanded(
+          flex: 1,
           child: Opacity(
             opacity: 0.6,
             child: Text(

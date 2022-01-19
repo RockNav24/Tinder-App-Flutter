@@ -1,7 +1,7 @@
 class UserRegistration {
   String name = '';
-  int age = 0;
+  List filters = [];
   String email = '';
   String password = '';
-  String localProfilePhotoPath = '';
+  String localProfilePhotoPath = 'default';
 }

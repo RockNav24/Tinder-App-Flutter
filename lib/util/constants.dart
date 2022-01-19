@@ -5,9 +5,9 @@ const kDefaultPadding = EdgeInsets.symmetric(
   horizontal: 26.0,
 );
 
-const kPrimaryColor = Color(0xFF1D1C1C);
-const kSecondaryColor = Colors.white;
-const kAccentColor = Color(0xFFF4C470);
+const kPrimaryColor = Color(0xFFFCFCFC);
+const kSecondaryColor = Color(0xFF424242);
+const kAccentColor = Color(0xffb667c9);
 
 const kColorPrimaryVariant = Color(0xFF424242);
 
@@ -24,21 +24,27 @@ const kTextTheme = TextTheme(
 const kButtonTheme = ButtonThemeData(
   splashColor: Colors.transparent,
   padding: EdgeInsets.symmetric(vertical: 14),
-  buttonColor: Color(0xFFF4C470),
-  textTheme: ButtonTextTheme.accent,
-  highlightColor: Color.fromRGBO(0, 0, 0, .3),
-  focusColor: Color.fromRGBO(0, 0, 0, .3),
+  buttonColor: kAccentColor,
+  textTheme: ButtonTextTheme.primary,
+  highlightColor: Color.fromRGBO(255, 255, 255, .3),
+  focusColor: Color.fromRGBO(255, 255, 255, .3),
 );
 
 const Map<int, Color> kThemeMaterialColor = {
-  50: Color.fromRGBO(0, 0, 0, .1),
-  100: Color.fromRGBO(0, 0, 0, .2),
-  200: Color.fromRGBO(0, 0, 0, .3),
-  300: Color.fromRGBO(0, 0, 0, .4),
-  000: Color.fromRGBO(0, 0, 0, .5),
-  500: Color.fromRGBO(0, 0, 0, .6),
-  600: Color.fromRGBO(0, 0, 0, .7),
-  700: Color.fromRGBO(0, 0, 0, .8),
-  800: Color.fromRGBO(0, 0, 0, .9),
-  900: Color.fromRGBO(0, 0, 0, 1),
+  50: Color.fromRGBO(255, 255, 255, .1),
+  100: Color.fromRGBO(255, 255, 255, .2),
+  200: Color.fromRGBO(255, 255, 255, .3),
+  300: Color.fromRGBO(255, 255, 255, .4),
+  000: Color.fromRGBO(255, 255, 255, .5),
+  500: Color.fromRGBO(255, 255, 255, .6),
+  600: Color.fromRGBO(255, 255, 255, .7),
+  700: Color.fromRGBO(255, 255, 255, .8),
+  800: Color.fromRGBO(255, 255, 255, .9),
+  900: Color.fromRGBO(255, 255, 255, 1),
 };
+
+TextStyle greyTextBold = const TextStyle(
+  fontSize: 16,
+  color: Colors.grey,
+  fontWeight: FontWeight.w500,
+);

@@ -1,1 +1,46 @@
-replace this 
+{
+  "project_info": {
+    "project_number": "1057888256485",
+    "project_id": "guestspot-d4e49",
+    "storage_bucket": "guestspot-d4e49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057888256485:android:815e91f3526718dcdf2f0c",
+        "android_client_info": {
+          "package_name": "com.guestspot.guestspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057888256485-8t0lcv6kqu8r8l79t66n2gj1sbuk3t5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfvbgp_w7yNXCUcrv9-NAaK1GFK-hB8Ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057888256485-8t0lcv6kqu8r8l79t66n2gj1sbuk3t5k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1057888256485-4k88broij0t6q0mg3sui45ql6pnl6ts0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.guestspot.guestspot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

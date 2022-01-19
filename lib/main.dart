@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tinder_app_flutter/data/provider/user_provider.dart';
 import 'package:tinder_app_flutter/ui/screens/chat_screen.dart';
+import 'package:tinder_app_flutter/ui/screens/complete_profile.dart';
 import 'package:tinder_app_flutter/ui/screens/login_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/matched_screen.dart';
+import 'package:tinder_app_flutter/ui/screens/password_reset_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/register_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/splash_screen.dart';
 import 'package:tinder_app_flutter/ui/screens/start_screen.dart';
@@ -27,13 +29,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (context) => UserProvider())],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: kFontFamily,
-          accentColor: kSecondaryColor,
-          buttonColor: kAccentColor,
           indicatorColor: kAccentColor,
-          primarySwatch:
-              MaterialColor(kBackgroundColorInt, kThemeMaterialColor),
           scaffoldBackgroundColor: kPrimaryColor,
           hintColor: kSecondaryColor,
           textTheme: TextTheme(
@@ -48,20 +47,19 @@ class MyApp extends StatelessWidget {
             bodyColor: kSecondaryColor,
             displayColor: kSecondaryColor,
           ),
-          buttonTheme: ButtonThemeData(
-            splashColor: Colors.transparent,
-            padding: EdgeInsets.symmetric(vertical: 14),
-            buttonColor: kAccentColor,
-            textTheme: ButtonTextTheme.accent,
-            highlightColor: Color.fromRGBO(0, 0, 0, .3),
-            focusColor: Color.fromRGBO(0, 0, 0, .3),
-          ),
+          buttonTheme: kButtonTheme,
+          colorScheme: ColorScheme.fromSwatch(
+                  primarySwatch:
+                      MaterialColor(kBackgroundColorInt, kThemeMaterialColor))
+              .copyWith(secondary: kSecondaryColor),
         ),
         initialRoute: SplashScreen.id,
         routes: {
+          CompleteProfileScreen.id: (context) => CompleteProfileScreen(),
           SplashScreen.id: (context) => SplashScreen(),
           StartScreen.id: (context) => StartScreen(),
           LoginScreen.id: (context) => LoginScreen(),
+          PasswordResetScreen.id: (context) => PasswordResetScreen(),
           RegisterScreen.id: (context) => RegisterScreen(),
           TopNavigationScreen.id: (context) => TopNavigationScreen(),
           MatchedScreen.id: (context) => MatchedScreen(

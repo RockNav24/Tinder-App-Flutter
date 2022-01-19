@@ -7,14 +7,25 @@ class FirebaseStorageSource {
 
   Future<Response<String>> uploadUserProfilePhoto(
       String filePath, String userId) async {
-    String userPhotoPath = "user_photos/$userId/profile_photo";
-
-    try {
-      await instance.ref(userPhotoPath).putFile(File(filePath));
-      String downloadUrl = await instance.ref(userPhotoPath).getDownloadURL();
-      return Response.success(downloadUrl);
-    } catch (e) {
-      return Response.error(((e as FirebaseException).message ?? e.toString()));
+    if (filePath != "default") {
+      String userPhotoPath = "user_photos/$userId/profile_photo";
+      try {
+        await instance.ref(userPhotoPath).putFile(File(filePath));
+        String downloadUrl = await instance.ref(userPhotoPath).getDownloadURL();
+        return Response.success(downloadUrl);
+      } catch (e) {
+        return Response.error(
+            ((e as FirebaseException).message ?? e.toString()));
+      }
+    } else {
+      String userPhotoPath = "default_photos/default-avatar.png";
+      try {
+        String downloadUrl = await instance.ref(userPhotoPath).getDownloadURL();
+        return Response.success(downloadUrl);
+      } catch (e) {
+        return Response.error(
+            ((e as FirebaseException).message ?? e.toString()));
+      }
     }
   }
 }
