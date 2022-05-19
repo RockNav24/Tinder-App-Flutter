@@ -48,3 +48,18 @@ TextStyle greyTextBold = const TextStyle(
   color: Colors.grey,
   fontWeight: FontWeight.w500,
 );
+
+TextStyle profileSubTextStyle = const TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w300,
+);
+
+const List<String> kRecordingStyle = ["Audio", "Video", "Both"];
+const Map<String, ImageProvider> kSocialMediaImages = {
+  "fb": NetworkImage(
+      "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/150px-Facebook_f_logo_%282021%29.svg.png"),
+  "twitter": NetworkImage(
+      "https://fye.sa.ua.edu/wp-content/uploads/sites/14/twitter-logo.png"),
+  "instagram": NetworkImage(
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/300px-Instagram_logo_2022.svg.png"),
+};
